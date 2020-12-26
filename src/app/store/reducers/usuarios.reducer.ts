@@ -9,14 +9,14 @@ export interface UsuariosState {
   error: any
 }
 
-export const initialState: UsuariosState = {
+export const usuariosInitialState: UsuariosState = {
   users: [],
   loaded: false,
   loading: false,
   error: null
 }
 
-const _usersReducer = createReducer(initialState,
+const _usersReducer = createReducer(usuariosInitialState,
   on(loadUsers, state => ({ ...state, loading: true })),
   on(loadUsersSuccess, (state, { users }) => ({
     ...state,
@@ -27,7 +27,11 @@ const _usersReducer = createReducer(initialState,
   on(loadUsersError, (state, { payload }) => ({
     ...state,
     loading: false,
-    error: payload
+    error: {
+      url: payload.url,
+      name: payload.name,
+      message: payload.message
+    }
   }))
 );
 

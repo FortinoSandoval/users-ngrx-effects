@@ -1,12 +1,12 @@
 import { createAction, props } from '@ngrx/store';
 import { Usuario } from 'src/app/models/usuario.model';
 
-export const loadUsers = createAction('[Usuarioss] Load users');
+export const loadUsers = createAction('[Usuarios] Load users');
 
-export const loadUsersSuccess = createAction('[Usuarioss] Load users Success',
+export const loadUsersSuccess = createAction('[Usuarios] Load users Success',
   props<{ users: Usuario[] }>()
 );
 
-export const loadUsersError = createAction('[Usuarioss] Load users error',
+export const loadUsersError = createAction('[Usuarios] Load users error',
   props<{ payload: any }>()
 );
